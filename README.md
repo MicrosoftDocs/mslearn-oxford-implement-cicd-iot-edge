@@ -60,9 +60,9 @@ The import process should begin importing this repository into your Azure DevOps
 
 ### Step 3: Setting up Continuous Integration
 
-This repository contains an Azure DevOps build definition which is preconfigured to build the included EdgeSolution in [.azure-pipelines.yml](/.azure-pipelines.yml).  This build definition relies on an external plugin ([Replace Tokens](https://marketplace.visualstudio.com/items?itemName=qetza.replacetokens).
+This repository contains an Azure DevOps build definition which is preconfigured to build the included EdgeSolution in [.azure-pipelines.yml](/.azure-pipelines.yml).  This build definition relies on an external plugin ([Replace Tokens](https://marketplace.visualstudio.com/items?itemName=qetza.replacetokens&wt.mc_id=iotedgedevops-github-pdecarlo)).
 
-Begin by installing the **Replace Tokens** task from the Visual Studio Marketplace by visiting this [link](https://marketplace.visualstudio.com/items?itemName=qetza.replacetoken&wt.mc_id=iotedgedevops-github-pdecarlo) and clicking the "Get it free" button, then install into the organization which contains your newly created Azure DevOps project.
+Begin by installing the **Replace Tokens** task from the Visual Studio Marketplace by visiting this [link](https://marketplace.visualstudio.com/items?itemName=qetza.replacetokens&wt.mc_id=iotedgedevops-github-pdecarlo) and clicking the "Get it free" button, then install into the organization which contains your newly created Azure DevOps project.
 
 Once this task is successfully installed, return to the Azure DevOps project and select "Repos => Files" then edit the `.azure-pipelines.yml` file:
 
@@ -215,9 +215,21 @@ The new release pipeline should begin running:
 
 ### Step 5: Adding a scalable integration test to a release pipeline 
 
-Integration testing is important for IoT Edge solutions which rely on services to accomplish desired functionality.  We will setup a scalable deployment of QA Devices using an Azure Kubernetes cluster.  This allows for an ability to deploy a theoretically limitless number of devices into an isolated environment for testing.  In addition, we will be able to monitor these devices using the dockerappinsights module which is configured in [deployment.template.json](/EdgeSolution/deployment.template.json). Completion of this step will require configuration of an Azure Kubernetes Service.
+Integration testing is important for IoT Edge solutions which rely on services to accomplish desired functionality.  We will setup a scalable deployment of QA Devices using an Azure Kubernetes cluster.  This allows for an ability to deploy a theoretically limitless number of devices into an isolated environment for testing.  In addition, we will be able to monitor these devices using the dockerappinsights module which is configured in [deployment.template.json](/EdgeSolution/deployment.template.json). Completion of this step will require configuration of an Azure Kubernetes Service (AKS).
 
-Begin by [creating an Azure Kubernetes Service cluster in the Azure Portal](https://docs.microsoft.com/en-us/azure/aks/kubernetes-walkthrough-portal#create-an-aks-cluster).  Once you have completed this step, head back to the release pipeline created in Step 4.
+You can deploy an AKS instance into your Azure Subscription by [creating an Azure Kubernetes Service cluster in the Azure Portal](https://docs.microsoft.com/en-us/azure/aks/kubernetes-walkthrough-portal#create-an-aks-cluster).  It is important that you pay attention to the following configuration options during creation.  By default, this lab supports Kubernetes 1.15.x, you must ensure that you specify this during the configuration of your AKS instance.  In addition, you can save costs by reducing the Node Count to "1", this will deploy a single VM into your cluster and can be updated later if more resources are needed. Both of these options are highlighted below:
+
+![Set K8s version to 1.15.x](/content/AKS1.PNG)
+
+In addition, to make deployment and configuration a bit easier, we will disable Role Based Access Control (RBAC).  This is not advised in production, but for the purposes of this lab it will greatly reduce the surface area for error.  You must ensure that you specify this during the configuration of your AKS deployment as shown below:
+
+![Disable RBAC](/content/AKS2.PNG)
+
+Finally, you can double-check that you have made the necessary modifications in the final "Review + Create" step as shown below:
+
+![Review + Create AKS](/content/AKS3.PNG)
+
+Once you have completed this step, head back to the release pipeline created in Step 4.
 
 Add a new stage after the "Smoke Test" and select the "Deploy an application to a Kubernetes cluster by using its Helm chart" template:
 
@@ -227,7 +239,9 @@ Rename this stage to "Integration":
 
 ![Add Integration Step](/content/AddIntegrationStep.PNG)
 
-You will notice that the "Helm init" and "Helm upgrade" tasks require some additional configuration:
+An "Install Helm 2.9.1" task will be created, to reduce surface area for error, this should not be modified.
+
+You will also notice that the "Helm init" and "Helm upgrade" tasks require some additional configuration:
 
 ![Helm Fix 1](/content/HelmFix1.PNG)
 
