@@ -1,14 +1,14 @@
 # IoTEdge-DevOps
 
-A living repository of best practices and examples for developing [AzureIoT Edge](https://docs.microsoft.com/en-us/azure/iot-edge/) solutions doubly presented as a hands-on-lab.
+A living repository of best practices and examples for developing [AzureIoT Edge](https://docs.microsoft.com/azure/iot-edge/?WT.mc_id=iot-0000-pdecarlo) solutions doubly presented as a hands-on-lab.
 
 ## Purpose
 
-The [Internet of Things](https://en.wikipedia.org/wiki/Internet_of_things) is a technology paradigm that involves the use of internet connected devices to publish data often in conjunction with real-time data processing, machine learning, and/or storage services.  Development of these systems can be enhanced through application of modern DevOps principles which include such tasks as automation, monitoring, and all steps of the software engineering process from development, testing, quality assurance, and release.  We will examine these concepts as they relate to feature offerings in [Azure DevOps Services](https://azure.microsoft.com/en-us/services/devops?wt.mc_id=iotedgedevops-github-pdecarlo), [Application Insights](https://azure.microsoft.com/en-us/services/application-insights?wt.mc_id=iotedgedevops-github-pdecarlo), [Azure Container Registries](https://azure.microsoft.com/en-us/services/container-registry?wt.mc_id=iotedgedevops-github-pdecarlo), [Azure IoT Hub Device Provisioning Service](https://docs.microsoft.com/en-us/azure/iot-dps?wt.mc_id=iotedgedevops-github-pdecarlo), and [Azure IoT Hubs](https://azure.microsoft.com/en-us/services/iot-hub?wt.mc_id=iotedgedevops-github-pdecarlo).
+The [Internet of Things](https://en.wikipedia.org/wiki/Internet_of_things) is a technology paradigm that involves the use of internet connected devices to publish data often in conjunction with real-time data processing, machine learning, and/or storage services.  Development of these systems can be enhanced through application of modern DevOps principles which include such tasks as automation, monitoring, and all steps of the software engineering process from development, testing, quality assurance, and release.  We will examine these concepts as they relate to feature offerings in [Azure DevOps Services](https://azure.microsoft.com/services/devops?WT.mc_id=iot-0000-pdecarlo), [Application Insights](https://azure.microsoft.com/services/application-insights?WT.mc_id=iot-0000-pdecarlo), [Azure Container Registries](https://azure.microsoft.com/services/container-registry?WT.mc_id=iot-0000-pdecarlo), [Azure IoT Hub Device Provisioning Service](https://docs.microsoft.com/azure/iot-dps?WT.mc_id=iot-0000-pdecarlo), and [Azure IoT Hubs](https://azure.microsoft.com/services/iot-hub?WT.mc_id=iot-0000-pdecarlo).
 
 ## IoTEedge-DevOps Lab
 
-This Lab will walk through creating an Azure DevOps Services project repo that employs [Continuous Integration](https://docs.microsoft.com/en-us/azure/devops/what-is-continuous-integration) and [Continuous Delivery](https://docs.microsoft.com/en-us/azure/devops/what-is-continuous-delivery) to publish an IoT Edge deployment to specific devices as part of a [build definition](https://docs.microsoft.com/en-us/cli/vsts/build/definition) and [release pipeline](https://docs.microsoft.com/en-us/vsts/pipelines/release/). 
+This Lab will walk through creating an Azure DevOps Services project repo that employs [Continuous Integration](https://docs.microsoft.com/azure/devops/what-is-continuous-integration?WT.mc_id=iot-0000-pdecarlo) and [Continuous Delivery](https://docs.microsoft.com/azure/devops/what-is-continuous-delivery?WT.mc_id=iot-0000-pdecarlo) to publish an IoT Edge deployment to specific devices as part of a [build definition](https://docs.microsoft.com/cli/vsts/build/definition?WT.mc_id=iot-0000-pdecarlo) and [release pipeline](https://docs.microsoft.com/vsts/pipelines/release/?WT.mc_id=iot-0000-pdecarlo). 
 
 * [Step 1: Creating Azure Resources](#step-1-creating-azure-resources)
 * [Step 2: Setup Azure DevOps Services](#step-2-setup-azure-devops-services)
@@ -23,10 +23,10 @@ To get started, we will need to create a few cloud services that will be used in
 
 | Service | Description |
 | -------------- | ------------|
-| [Application Insights](https://azure.microsoft.com/en-us/services/application-insights?wt.mc_id=iotedgedevops-github-pdecarlo) | Used to monitor performance metrics of Docker Host and IoT Edge Modules |
-| [Azure Container Registries](https://azure.microsoft.com/en-us/services/container-registry?wt.mc_id=iotedgedevops-github-pdecarlo) | A private docker registry service used to store published IoT Edge Modules |
-| [Azure IoT Hub Device Provisioning Service](https://docs.microsoft.com/en-us/azure/iot-dps?wt.mc_id=iotedgedevops-github-pdecarlo) | Allows for automatic provisioning of IoT Devices in a secure and scalable manner |
-| [Azure IoT Hubs](https://azure.microsoft.com/en-us/services/iot-hub?wt.mc_id=iotedgedevops-github-pdecarlo) | Service which enables us to securely connect, monitor, and manage IoT devices. 
+| [Application Insights](https://azure.microsoft.com/services/application-insights?WT.mc_id=iot-0000-pdecarlo) | Used to monitor performance metrics of Docker Host and IoT Edge Modules |
+| [Azure Container Registries](https://azure.microsoft.com/services/container-registry?WT.mc_id=iot-0000-pdecarlo) | A private docker registry service used to store published IoT Edge Modules |
+| [Azure IoT Hub Device Provisioning Service](https://docs.microsoft.com/azure/iot-dps?WT.mc_id=iot-0000-pdecarlo) | Allows for automatic provisioning of IoT Devices in a secure and scalable manner |
+| [Azure IoT Hubs](https://azure.microsoft.com/services/iot-hub?WT.mc_id=iot-0000-pdecarlo) | Service which enables us to securely connect, monitor, and manage IoT devices. 
 
 If you have already deployed any of these services into an existing environment, you are welcome to reuse them in the lab, however, it is highly suggested to create brand new services to avoid issues.  
 
@@ -44,7 +44,7 @@ If you encounter any issues in the deployment, it is advised to delete the creat
 
 Azure DevOps Services allows for building, testing, and deploying code in an easy to manage interface.  We will build out a base for IoT Edge DevOps practices using services provided by Azure DevOps Services.
 
-If you have not already, create a new Azure DevOps Services account [here](https://azure.microsoft.com/en-us/services/devops?wt.mc_id=iotedgedevops-github-pdecarlo)
+If you have not already, create a new Azure DevOps Services account [here](https://azure.microsoft.com/services/devops?WT.mc_id=iot-0000-pdecarlo)
 
 Next, create a new project and give it a descriptive name:
 
@@ -60,9 +60,9 @@ The import process should begin importing this repository into your Azure DevOps
 
 ### Step 3: Setting up Continuous Integration
 
-This repository contains an Azure DevOps build definition which is preconfigured to build the included EdgeSolution in [.azure-pipelines.yml](/.azure-pipelines.yml).  This build definition relies on an external plugin ([Replace Tokens](https://marketplace.visualstudio.com/items?itemName=qetza.replacetokens&wt.mc_id=iotedgedevops-github-pdecarlo)).
+This repository contains an Azure DevOps build definition which is preconfigured to build the included EdgeSolution in [.azure-pipelines.yml](/.azure-pipelines.yml).  This build definition relies on an external plugin ([Replace Tokens](https://marketplace.visualstudio.com/items?itemName=qetza.replacetokens&WT.mc_id=iot-0000-pdecarlo)).
 
-Begin by installing the **Replace Tokens** task from the Visual Studio Marketplace by visiting this [link](https://marketplace.visualstudio.com/items?itemName=qetza.replacetokens&wt.mc_id=iotedgedevops-github-pdecarlo) and clicking the "Get it free" button, then install into the organization which contains your newly created Azure DevOps project.
+Begin by installing the **Replace Tokens** task from the Visual Studio Marketplace by visiting this [link](https://marketplace.visualstudio.com/items?itemName=qetza.replacetokens&WT.mc_id=iot-0000-pdecarlo) and clicking the "Get it free" button, then install into the organization which contains your newly created Azure DevOps project.
 
 Once this task is successfully installed, return to the Azure DevOps project and select "Repos => Files" then edit the `.azure-pipelines.yml` file:
 
@@ -166,7 +166,7 @@ You may use the same values for `acr.host`, `acr.user`, `acr.password`, and `app
 
 For the additional variables, we need to create a service principal by performing the following:
 
-Install the [Azure-Cli](https://docs.microsoft.com/en-us/cli/azure/install-azure-cli?view=azure-cli-latest) 
+Install the [Azure-Cli](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest&WT.mc_id=iot-0000-pdecarlo) 
 
 Run `az login` to sign in with the azure cli, then run `az account list` to see available subscriptions, and set the appropriate subscription with:
 
@@ -217,11 +217,11 @@ The new release pipeline should begin running:
 
 Integration testing is important for IoT Edge solutions which rely on services to accomplish desired functionality.  We will setup a scalable deployment of QA Devices using an Azure Kubernetes cluster.  This allows for an ability to deploy a theoretically limitless number of devices into an isolated environment for testing.  In addition, we will be able to monitor these devices using the dockerappinsights module which is configured in [deployment.template.json](/EdgeSolution/deployment.template.json). Completion of this step will require configuration of an Azure Kubernetes Service (AKS).
 
-You can deploy an AKS instance into your Azure Subscription by [creating an Azure Kubernetes Service cluster in the Azure Portal](https://docs.microsoft.com/en-us/azure/aks/kubernetes-walkthrough-portal#create-an-aks-cluster).  It is important that you pay attention to the following configuration options during creation.  By default, this lab supports Kubernetes 1.15.x, you must ensure that you specify this during the configuration of your AKS instance.  In addition, you can save costs by reducing the Node Count to "1", this will deploy a single VM into your cluster and can be updated later if more resources are needed. Both of these options are highlighted below:
+You can deploy an AKS instance into your Azure Subscription by [creating an Azure Kubernetes Service cluster in the Azure Portal](https://docs.microsoft.com/azure/aks/kubernetes-walkthrough-portal?WT.mc_id=iot-0000-pdecarlo#create-an-aks-cluster).  It is important that you pay attention to the following configuration options during creation.  By default, this lab supports Kubernetes 1.18.14, you must ensure that you specify this during the configuration of your AKS instance.  In addition, you can save costs by reducing the Node Count to "1", this will deploy a single VM into your cluster and can be updated later if more resources are needed. Both of these options are highlighted below:
 
-![Set K8s version to 1.15.x](/content/AKS1.PNG)
+![Set K8s version to 1.18.14](/content/AKS1.PNG)
 
-In addition, to make deployment and configuration a bit easier, we will disable Role Based Access Control (RBAC).  This is not advised in production, but for the purposes of this lab it will greatly reduce the surface area for error.  You must ensure that you specify this during the configuration of your AKS deployment as shown below:
+In addition, to make deployment and configuration a bit easier, we will disable Role Based Access Control (RBAC).  This is not advised in production, but for the purposes of this lab it will greatly reduce the surface area for error. We also advise that you select "Service Principal" as your authentication method. You must ensure that you specify this during the configuration of your AKS deployment as shown below:
 
 ![Disable RBAC](/content/AKS2.PNG)
 
@@ -239,27 +239,23 @@ Rename this stage to "Integration":
 
 ![Add Integration Step](/content/AddIntegrationStep.PNG)
 
-An "Install Helm 2.9.1" task will be created, to reduce surface area for error, this should not be modified.
+First, we will modify the top-level parameters for this stage by selecting "Integration" at the top and supplying the appropriate values for the "Azure Subscription", "Resource group", and "Kubernetes cluster". These should be the values that were used when deploying your Kubernetes cluster:
 
-You will also notice that the "Helm init" and "Helm upgrade" tasks require some additional configuration:
-
-![Helm Fix 1](/content/HelmFix1.PNG)
-
-![Helm Fix 2](/content/HelmFix2.PNG)
-
-To fix this, select the stage name and configure the required settings:
-
-![Helm Fix 3](/content/HelmFix3.PNG)
+![Integration Parameters](/content/IntegrationParameters.PNG)
 
 Next, we will configure the Agent job to run on the "Hosted Ubuntu 1604" agent pool:
 
-![Helm Fix 4](/content/HelmFix4.PNG)
+![Configure Agent](/content/ConfigureAgent.PNG)
 
-Next, we will configure the "Helm init" task to upgrade / install tiller:
+You should notice an "Install Helm 2.9.1" task has been created, we will modify this to instead install Helm 3.5.2:
 
-![Helm Fix 5](/content/HelmFix5.PNG)
+![Helm Fix 1](/content/HelmFix1.PNG)
 
-Next, we will configure the "Helm upgrade" task to deploy the helm chart for the "azure-iot-edge-device-container".  Begin by adding a new "Bash" task right before the "Helm upgrade" task. Configure the type to "inline" and add the following:
+You will also notice that the "Helm init" and "Helm upgrade" tasks require some additional configuration.  [Helm version 3 and above no longer requires "Helm init"](https://helm.sh/blog/helm-v3-beta/) so we will remove this task.
+
+![Helm Fix 2](/content/HelmFix2.PNG)
+
+Next, we will create a new task to add the helm chart for the "azure-iot-edge-device-container".  Begin by adding a new "Bash" task right before the "Helm upgrade" task. Configure the type to "inline" and add the following:
 
     helm repo add azure-iot-edge-device-container https://toolboc.github.io/azure-iot-edge-device-container
     helm repo list
@@ -267,21 +263,29 @@ Next, we will configure the "Helm upgrade" task to deploy the helm chart for the
 
 ![Add Helm Chart](/content/AddHelmChart.PNG)
 
+Next, we want to ensure that our helm deployment does not recycle existing pods on consecutive runs, and instead deploys brand new instances of the "azure-iot-edge-device-container" for testing.  Add a new "kubectl" task, then modify the "Service Connection Type" to "Azure Resource Manager", select the Azure subscription that contains your Kubernetes Cluster, then choose the resource group and name of your cluster as shown:
+
+![Kubectl Config part 1](/content/Kubectl1.PNG)
+
+In this same section, scroll down and modify the namespace to "iot-edge-qa", set the command to "delete , and set arguments field to "pods --all" as shown:
+
+![Kubectl Config part 1](/content/Kubectl2.PNG)
+
 Next, we will configure the Helm Upgrade task.  Set the Namespace value to "iot-edge-qa", set the Command to "upgrade", set Chart Type to "Name", set the Chart Name to "azure-iot-edge-device-container/azure-iot-edge-device-container", set the Release Name to "iot-edge-qa", set Set Values to:
 
     spAppUrl=$(spAppUrl),spPassword=$(spPassword),tenantId=$(tenantId),subscriptionId=$(subscriptionId),iothub_name=$(iothub_name),environment=$(environment),replicaCount=2 
 
-and ensure that "Install if release not present", "Recreate Pods", "Force", and "Wait" checkboxes are checked as shown below:
+and ensure that "Install if release not present", and "Wait" checkboxes are checked as shown below:
 
 ![Configure Helm Upgrade](/content/HelmUpgrade.PNG)
 
-Start a new release and when complete, view  your AKS cluster Dashboard with:
+Start a new release and when complete, navigate  your AKS service within the Azure Portal, then select Namespaces:
 
-    az aks browse --resource-group <kube-cluster-resource-group> --name <kube-cluster-name>
+![Azure K8s Namespaces](/content/azureK8sNamespaces.PNG)
 
-![k8s Dashboard](/content/k8sDash.PNG)
+You will notice that the iot-edge-qa deployment has been deployed to the cluster.  To view the individual pods, you can select "Workloads" where you should see that two instances have been deployed:
 
-You will notice that QA devices have been deployed to the cluster.
+![Azure K8s Workloads](/content/azureK8sWorkloads.PNG)
 
 ### Step 6: Monitoring devices with App Insights
 
